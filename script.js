@@ -14,13 +14,22 @@ var text9 = $("#event9");
 var text10 = $("#event10");
 var text11 = $("#event11");
 var text12 = $("#event12");
-var text1 = $("#event13");
-var text2 = $("#event14");
-var text3 = $("#event15");
-var text4 = $("#event16");
-var text5 = $("#event17");
-var textareas = [text9, text10, text11, text12, text1, text2, text3, text4, text5];
-
+var text13 = $("#event13");
+var text14 = $("#event14");
+var text15 = $("#event15");
+var text16 = $("#event16");
+var text17 = $("#event17");
+var textareas = [text9, text10, text11, text12, text13, text14, text15, text16, text17];
+var btn9 = $("#btn9");
+var btn10 = $("#btn10");
+var btn11 = $("#btn11");
+var btn12 = $("#btn12");
+var btn13 = $("#btn13");
+var btn14 = $("#btn14");
+var btn15 = $("#btn15");
+var btn16 = $("#btn16");
+var btn17 = $("#btn17");
+var buttonImages = [btn9, btn10, btn11, btn12, btn13, btn14, btn15, btn16, btn17];
 // Defining functions
 // ________________________________________________________________________________________________________________________
 var updateDateTime = function () {
@@ -32,6 +41,7 @@ var updateDateTime = function () {
 
 var timeColorCode = function () {
     for (var i = 0; i < textareas.length; i++) {
+        // textTime is number value of textareas' data-time in 24hr clock
         textTime = parseInt(textareas[i][0].dataset.time);
         if (textTime === currentHour) {
             textareas[i].addClass("current-time").removeClass("future-time past-time");
@@ -45,6 +55,13 @@ var timeColorCode = function () {
     }
 }
 
+var saveEvent = function () {
+    for (var i = 0; i < buttonImages.length; i++) {
+        console.log(buttonImages[i][0].id);
+        // if (event.target.id === )
+    }
+};
+
 // Getting the document ready. Functions defined above will be called/run below
 // ________________________________________________________________________________________________________________________
 $(document).ready(function () {
@@ -54,6 +71,8 @@ $(document).ready(function () {
     // Setting the update to happen every second so that the time is dynmically changing itself in the browser
     setInterval(updateDateTime, 1000);
     setInterval(timeColorCode, 1000);
+
+    $("img").on("click", saveEvent)
 });
 
 
