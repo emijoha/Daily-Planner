@@ -1,0 +1,11 @@
+.future-time {
+    background-color: rgb(161, 207, 118);
+}
+
+.past-time {
+    background-color: rgb(233,236,239);
+}
+
+.current-time {
+    background-color: rgb(255, 121, 150);
+}
