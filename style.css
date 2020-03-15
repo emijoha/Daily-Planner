@@ -1,5 +1,5 @@
 .future-time {
-    background-color: rgb(161, 207, 118);
+    background-color: rgb(183, 212, 155);
 }
 
 .past-time {
@@ -7,5 +7,39 @@
 }
 
 .current-time {
-    background-color: rgb(255, 121, 150);
+    background-color: rgb(250, 159, 179);
+}
+
+.btn {
+    background-color: rgb(233,236,239);
+    border-style: solid;
+    border-width: 1px;
+    border-color: black;
+}
+
+.form-control {
+    border-style: solid;
+    border-width: 1px;
+    border-color: black;
+}
+
+.input-group-text {
+    border-style: solid;
+    border-width: 1px;
+    border-color: black;
+}
+
+.input-group-lg {
+    margin-bottom: 15px;
+}
+
+hr {
+    border-width: 5px;
+    border-color: rgb(229,170,23);
+}
+
+.page-footer {
+    background-color: rgb(229,170,23);
+    padding-top: 25px;
+    padding-bottom: 10px;
 }
