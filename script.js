@@ -5,6 +5,7 @@ var currentDate = moment();
 var currentHour = parseInt(currentDate.format("HH"));
 var textTime;
 
+
 // Grabbing elements from the DOM
 // ________________________________________________________________________________________________________________________
 var currentDateDisplay = $("#current-date");
@@ -30,6 +31,8 @@ var btn15 = $("#btn15");
 var btn16 = $("#btn16");
 var btn17 = $("#btn17");
 var buttonImages = [btn9, btn10, btn11, btn12, btn13, btn14, btn15, btn16, btn17];
+
+
 // Defining functions
 // ________________________________________________________________________________________________________________________
 var updateDateTime = function () {
@@ -40,7 +43,7 @@ var updateDateTime = function () {
 };
 
 var timeColorCode = function () {
-    for (var i = 0; i < textareas.length; i++) {
+    for (var i = 0; i < 9; i++) {
         // textTime is number value of textareas' data-time in 24hr clock
         textTime = parseInt(textareas[i][0].dataset.time);
         if (textTime === currentHour) {
@@ -53,14 +56,29 @@ var timeColorCode = function () {
             textareas[i].addClass("future-time").removeClass("current-time past-time");
         }
     }
-}
+};
 
 var saveEvent = function () {
-    for (var i = 0; i < buttonImages.length; i++) {
-        console.log(buttonImages[i][0].id);
-        // if (event.target.id === )
+    event.preventDefault();
+
+    for (var i = 0; i < 9; i++) {
+        var buttonId = event.target.dataset.match;
+        var textId = textareas[i][0].id;
+        if (buttonId === textId) {
+            var textInput = textareas[i][0].value;
+            var eventHour = "event" + (i + 9);
+            localStorage.setItem(eventHour, textInput);
+        }
     }
 };
+
+// var renderEvents = function () {
+//     for (var i = 0; i < 9; i++) {
+        
+//     }
+// }
+
+
 
 // Getting the document ready. Functions defined above will be called/run below
 // ________________________________________________________________________________________________________________________
@@ -72,7 +90,7 @@ $(document).ready(function () {
     setInterval(updateDateTime, 1000);
     setInterval(timeColorCode, 1000);
 
-    $("img").on("click", saveEvent)
+    $("img").on("click", saveEvent);
 });
 
 
