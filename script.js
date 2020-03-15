@@ -21,7 +21,7 @@ var text15 = $("#event15");
 var text16 = $("#event16");
 var text17 = $("#event17");
 var textareas = [text9, text10, text11, text12, text13, text14, text15, text16, text17];
-// Buttons for each timeblock
+// Buttons Images for each timeblock
 var btn9 = $("#btn9");
 var btn10 = $("#btn10");
 var btn11 = $("#btn11");
@@ -32,7 +32,17 @@ var btn15 = $("#btn15");
 var btn16 = $("#btn16");
 var btn17 = $("#btn17");
 var buttonImages = [btn9, btn10, btn11, btn12, btn13, btn14, btn15, btn16, btn17];
-
+// button ELEMENTS of each timeblock
+var btnEl9 = $(".9");
+var btnEl10 = $(".10");
+var btnEl11 = $(".11");
+var btnEl12 = $(".12");
+var btnEl13 = $(".13");
+var btnEl14 = $(".14");
+var btnEl15 = $(".15");
+var btnEl16 = $(".16");
+var btnEl17 = $(".17");
+var btnElements = [btnEl9, btnEl10, btnEl11, btnEl12, btnEl13, btnEl14, btnEl15, btnEl16, btnEl17];
 
 // Defining functions
 // ________________________________________________________________________________________________________________________
@@ -49,12 +59,19 @@ var updateDateTimeColor = function () {
         var textTime = parseInt(textareas[i][0].dataset.time);
         if (textTime === currentHour) {
             textareas[i].addClass("current-time").removeClass("future-time past-time");
+            textareas[i].removeProp("disabled");
+            btnElements[i].removeProp("disabled");
         }
         else if (textTime < currentHour) {
             textareas[i].addClass("past-time").removeClass("future-time current-time");
+            // adding "disabled" to all past/outside office hours timeblocks
+            textareas[i].prop("disabled", true);
+            btnElements[i].prop("disabled", true);
         }
         else if (textTime > currentHour) {
             textareas[i].addClass("future-time").removeClass("current-time past-time");
+            textareas[i].removeProp("disabled");
+            btnElements[i].removeProp("disabled");
         }
     }
 };
