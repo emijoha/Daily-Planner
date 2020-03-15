@@ -48,6 +48,8 @@ var btnElements = [btnEl9, btnEl10, btnEl11, btnEl12, btnEl13, btnEl14, btnEl15,
 // ________________________________________________________________________________________________________________________
 // getting the current date and time from moment.js and setting displays to match
 var updateDateTimeColor = function () {
+    // calling reset, planner will reset when time is 1 am
+    plannerReset();
     //call moment() to access current time
     currentDate = moment();
     currentDateDisplay.text(currentDate.format("dddd, MMMM Do"));
@@ -103,7 +105,20 @@ var renderEvents = function () {
         var textDisplay = textareas[i];
         textDisplay[0].value = localStorage.getItem(eventHour);
     }
-}
+};
+
+// This function will reset the planner after midnight (at 1 am)
+// It will run continuously inside the updateDateTimeColor function
+var plannerReset = function () {
+    // if the time is 1
+    if (currentHour === 1) {
+        for (var i = 0; i < 9; i++) {
+            textareas[i][0].value = 0;
+            var eventHour = "event" + (i + 9);
+            localStorage.removeItem(eventHour);
+        }
+    }
+};
 
 
 
