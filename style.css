@@ -39,7 +39,7 @@ hr {
 }
 
 .page-footer {
-    background-color: rgb(229,170,23);
-    padding-top: 25px;
-    padding-bottom: 10px;
+    color: black;
+    padding-top: 10px;
+    padding-bottom: 25px;
 }
